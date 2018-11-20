@@ -4,10 +4,14 @@
 /node_modules
 
 # testing
-/coverage
+/tests
 
 # production
 /build
+
+#IDE
+.vscode
+.idea
 
 # misc
 .DS_Store
