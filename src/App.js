@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import withRoot from './withRoot';
 
-import TopNav from './components/topNav'
 import Router from './router'
 
 const styles = theme => ({})
@@ -22,7 +21,6 @@ class App extends React.Component {
 
     return (
       <div>
-        <TopNav/>
         <Router/>
       </div>
     )

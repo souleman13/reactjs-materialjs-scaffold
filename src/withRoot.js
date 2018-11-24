@@ -1,27 +1,8 @@
 import React from 'react'
-import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
-import {orange, indigo} from '@material-ui/core/colors/'
+import { MuiThemeProvider } from '@material-ui/core/styles'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import { BrowserRouter } from 'react-router-dom'
-
-
-// A theme with custom primary and secondary color.
-// It's optional.
-const theme = createMuiTheme({
-  palette: {
-    primary: {
-      light: indigo[300],
-      main: indigo[500],
-      dark: indigo[700],
-    },
-    secondary: {
-      light: orange[300],
-      main: orange[500],
-      dark: orange[700],
-      contrastText: 'black',
-    },
-  },
-})
+import { theme } from './theme'
 
 //wraps app with all neccessary higher-order components
 export default function withRoot(Component) {

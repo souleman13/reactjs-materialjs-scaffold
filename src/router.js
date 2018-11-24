@@ -10,9 +10,11 @@ export default () => (
 
             <Route exact path="/" component={Landing}/>
 
-            <Route path="/p1" component={Testpage}/>
+            <Route path="/gallery" component={Testpage}/>
 
-            <Route path="/p2" component={Testpage}/>
+            <Route path="/contact" component={Testpage}/>
+
+            <Route path="/explore" component={Testpage}/>
 
             <Route component={NotFound}/>
 
