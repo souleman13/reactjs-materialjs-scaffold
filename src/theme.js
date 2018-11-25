@@ -1,4 +1,4 @@
-import {orange, indigo} from '@material-ui/core/colors/'
+import { deepPurple, cyan } from '@material-ui/core/colors/'
 import { createMuiTheme } from '@material-ui/core/styles'
 
 
@@ -6,16 +6,13 @@ import { createMuiTheme } from '@material-ui/core/styles'
 // It's optional.
 export const theme = createMuiTheme({
     palette: {
-      primary: {
-        light: indigo[300],
-        main: indigo[500],
-        dark: indigo[700],
-      },
-      secondary: {
-        light: orange[300],
-        main: orange[500],
-        dark: orange[700],
-        contrastText: 'black',
-      },
+      primary: deepPurple,
+      secondary: cyan
+    },
+    typography: {
+      fontSize:18,
+      fontFamily: [
+        'caveat',
+      ].join(','),
     },
   })
