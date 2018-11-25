@@ -8,22 +8,8 @@ import Router from './router'
 const styles = theme => ({})
 
 class App extends React.Component {
-  constructor(props){
-    super(props)
-    this.state = {
-      open: false,
-    }
-  }
-
   render() {
-
-    const { classes } = this.props
-
-    return (
-      <div>
-        <Router/>
-      </div>
-    )
+    return <Router/>
   }
 }
 
