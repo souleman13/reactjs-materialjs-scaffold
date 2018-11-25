@@ -3,26 +3,15 @@ import PropTypes from 'prop-types'
 import { withStyles } from '@material-ui/core/styles'
 import { Typography, Button } from '@material-ui/core/'
 import GalleryIcon from '@material-ui/icons/Collections'
-import ReservationIcon from '@material-ui/icons/DateRange'
+import GuestIcon from '@material-ui/icons/DateRange'
 import ExploreIcon from '@material-ui/icons/Language'
+import ContactModal from '../components/contactModal'
+import Banner from '../components/banner'
 
 const styles = theme => ({
     root: {
         height: '100vh',
         width: '100vw',
-    },
-    banner: {
-        background: `url(https://s3.amazonaws.com/developwithsoule-files/images/mountains.jpg) no-repeat center center fixed`,
-        backgroundSize: 'cover',
-        height: '45%',
-        display: 'flex',
-        flexFlow: 'column nowrap',
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    box: {
-        display: 'flex',
-        justifyContent: 'center',
     },
     landingNav: {
         height: '33%',
@@ -36,6 +25,10 @@ const styles = theme => ({
         flexFlow: 'column nowrap',
         justifyContent: 'center',
         alignItems: 'center',
+        marginTop:33,
+    },
+    navText: {
+        marginBottom:10,
     },
     largeButton: {
         width: '25%',
@@ -44,46 +37,58 @@ const styles = theme => ({
         minHeight: '200px',
     },
     icon: {
-        color: theme.palette.secondary.main,
         height: '100%',
         width: '100%',
     }
 })
 
 class Landing extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            openGuest: false,
+        }
+    }
+    handleModal(key) {
+        this.setState({
+            [key]: !this.state[key],
+        })
+    }
+
     render() {
         const { classes } = this.props
         return (
             <div className={classes.root}>
-                <div className={classes.banner} />
 
-                <Typography color='secondary' className={classes.box} variant="h2" gutterBottom>
-                    Stay With Soule
-                </Typography>
+                <Banner/>
 
                 <div className={classes.landingNav}>
                     <div className={classes.navBox}>
-                        <Typography variant="h4">
+                        <Typography variant="h3" color="secondary" className={classes.navText}>
                             Gallery
                         </Typography>
                         <Button variant='outlined' className={classes.largeButton} href='gallery' color="secondary">
-                            <GalleryIcon className={classes.icon} />
+                            <GalleryIcon className={classes.icon} color="secondary" />
                         </Button>
-                    </div>
+                    </div> 
                     <div className={classes.navBox}>
-                        <Typography variant="h4">
-                            Reservations
+                        <Typography variant="h3" color="primary" className={classes.navText}>
+                            Guests
                         </Typography>
-                        <Button variant='outlined' className={classes.largeButton} href='contact' color="inherit">
-                            <ReservationIcon className={classes.icon} />
+                        <Button variant='outlined' className={classes.largeButton}  color="primary" onClick={() => this.handleModal('openContact')}>
+                            <GuestIcon className={classes.icon} color="primary" />
                         </Button>
+                        <ContactModal
+                            open={this.state.openContact}
+                            onClose={() => this.handleModal('openContact')}
+                        />
                     </div>
                     <div className={classes.navBox}>
-                        <Typography variant="h4">
+                        <Typography variant="h3" color="secondary" className={classes.navText}>
                             Explore
                         </Typography>
-                        <Button variant='outlined' className={classes.largeButton} href='explore' color="inherit">
-                            <ExploreIcon className={classes.icon} />
+                        <Button variant='outlined' className={classes.largeButton} href='explore' color="secondary">
+                            <ExploreIcon className={classes.icon} color="secondary" />
                         </Button>
                     </div>
                 </div>
