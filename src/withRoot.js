@@ -3,6 +3,7 @@ import { MuiThemeProvider } from '@material-ui/core/styles'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import { BrowserRouter } from 'react-router-dom'
 import { theme } from './theme'
+import 'typeface-caveat'
 
 //wraps app with all neccessary higher-order components
 export default function withRoot(Component) {
