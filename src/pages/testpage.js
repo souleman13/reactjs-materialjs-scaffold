@@ -8,7 +8,6 @@ const styles = theme => ({})
 
 class NotFound extends React.Component {
     render() {
-        const { classes } = this.props
         return (
             <Typography variant="h4" gutterBottom>
                 Test Page
@@ -21,4 +20,4 @@ NotFound.propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(NotFound);
+export default withStyles(styles)(NotFound)

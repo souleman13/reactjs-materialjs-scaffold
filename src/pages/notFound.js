@@ -8,11 +8,10 @@ const styles = theme => ({})
 
 class NotFound extends React.Component {
     render() {
-        const { classes } = this.props
         return (
             <Typography variant="h4" gutterBottom>
-                The page you requested could not be located.
-        </Typography>
+                404: The page you requested could not be located.
+            </Typography>
         );
     }
 }
