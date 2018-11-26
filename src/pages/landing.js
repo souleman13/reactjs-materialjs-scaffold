@@ -46,7 +46,7 @@ class Landing extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            openGuest: false,
+            openContact: false,
         }
     }
     handleModal(key) {
