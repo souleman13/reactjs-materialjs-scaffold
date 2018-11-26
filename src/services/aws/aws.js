@@ -1,4 +1,5 @@
 import AWS from 'aws-sdk'
+import { unmarshalItem } from 'dynamodb-marshaler'
 import { aws_cred } from './credential'
 
 AWS.config.update({
@@ -12,12 +13,20 @@ AWS.config.update({
     }
 })
 
+var dynamoDb = new AWS.DynamoDB()
+
+export const GetExploreData = () => {
+    return dynamoDb.scan({ TableName: 'guesthouse.explore' }).promise()
+        .then(response => response.Items.map(unmarshalItem))
+}
+
 var s3 = new AWS.S3()
 
 export const GetGallery = () => {
     var images = []
     const bucket = 'guesthouse-gallery'
     return s3.listObjects({Bucket: bucket}, function (err, data) {
+        if (err) throw(err)
         var bucketContents = data.Contents
         for (var i = 0; i < bucketContents.length; i++) {
             var urlParams = { Bucket: bucket, Key: bucketContents[i].Key }
@@ -28,5 +37,5 @@ export const GetGallery = () => {
                 })
             })
         }
-    })
+    }).promise().then(r=>images)
 }
