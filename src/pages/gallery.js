@@ -1,9 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { withStyles } from '@material-ui/core/styles'
-import { Typography, Paper, Button } from '@material-ui/core/'
+import { Typography, Button } from '@material-ui/core/'
 import ImageGallery from 'react-image-gallery'
 import BackIcon from '@material-ui/icons/BackspaceOutlined'
+import { images } from '../services/images'
 import "react-image-gallery/styles/css/image-gallery.css"
 
 const styles = theme => ({
@@ -39,20 +40,6 @@ const styles = theme => ({
 class Gallery extends React.Component {
     render() {
         const { classes } = this.props
-        const images = [
-            {
-                original: 'https://s3.amazonaws.com/developwithsoule-files/images/mountains.jpg',
-                thumbnail: 'https://s3.amazonaws.com/developwithsoule-files/images/mountains.jpg',
-            },
-            {
-                original: 'https://s3.amazonaws.com/developwithsoule-files/images/mountains.jpg',
-                thumbnail: 'https://s3.amazonaws.com/developwithsoule-files/images/mountains.jpg'
-            },
-            {
-                original: 'https://s3.amazonaws.com/developwithsoule-files/images/mountains.jpg',
-                thumbnail: 'https://s3.amazonaws.com/developwithsoule-files/images/mountains.jpg'
-            }
-        ]
         return (
             <div className={classes.root}>
                 <div className={classes.nav}>
@@ -65,9 +52,9 @@ class Gallery extends React.Component {
                     <Typography variant="h3">
                         Stay With Soule ~ Guesthouse ~ Gallery
                     </Typography>
-                    <Paper className={classes.gallery} elevation={7}>
+                    <div className={classes.gallery}>
                         <ImageGallery items={images} />
-                    </Paper>
+                    </div>
                 </div>
             </div>
         );

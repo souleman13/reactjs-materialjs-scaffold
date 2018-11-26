@@ -1,4 +1,4 @@
 export const aws_cred = {
-    accessKeyId: "AKIAJPWONZNBTY4EJCZQ",
-    secretAccessKey: "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"
+    accessKeyId: "AKIAIR3NBYKQ2HCA2KUQ",
+    secretAccessKey: "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"
 }
